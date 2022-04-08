@@ -12,49 +12,50 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "person")
+//@Table(name = "person")
 public class Person {
     /**
      * id человека в таблице
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+//    @Column(name = "id", updatable = false, nullable = false, unique=true)
+    private Integer id;
 
     /**
      * персональный id человека
      */
-    @Column(name = "personId")
-    private Long personId;
+//    @Column(name = "personId")
+    private String personId;
 
     /**
      * имя человека
      */
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
 
     /**
      * фамилия человека
      */
-    @Column(name = "surname")
+//    @Column(name = "surname")
     private String surname;
 
     /**
      * отчество человека
      */
-    @Column(name = "patronymic")
+//    @Column(name = "patronymic")
     private String patronymic;
 
     /**
      * отчество человека
      */
-    @Column(name = "full_name")
+//    @Column(name = "full_name")
     private String fullName;
 
     /**
      * дата рождения
      */
-    @Column(name = "birthday")
+//    @Column(name = "birthday")
     private Date birthday;
 
     /**

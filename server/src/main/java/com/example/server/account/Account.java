@@ -1,10 +1,12 @@
 package com.example.server.account;
 
+import com.example.server.balance.Currency;
 import com.example.server.person.Person;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,25 +14,26 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "account")
+//@Table(name = "accounts")
 public class Account {
     /**
      * id
      */
     @Id
-    private Long id;
+    @GeneratedValue
+    private Integer id;
 
     /**
      * account id
      */
-    @Column(name = "accountId")
-    private Long accountId;
+//    @Column(name = "accountId")
+    private String accountId;
 
     /**
      * amount of money
      */
-    @Column(name = "balance")
-    private BigDecimal balance;
+    @OneToMany(mappedBy = "account")
+    private List<Currency> currencies = new ArrayList<>();
 
     /**
      * person data
