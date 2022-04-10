@@ -1,19 +1,19 @@
 package com.example.server.account;
 
-import com.example.server.balance.Currency;
+import com.example.server.balance.Balance;
 import com.example.server.person.Person;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Builder
 //@Table(name = "accounts")
 public class Account {
     /**
@@ -33,11 +33,13 @@ public class Account {
      * amount of money
      */
     @OneToMany(mappedBy = "account")
-    private List<Currency> currencies = new ArrayList<>();
+    private Set<Balance> balance = new HashSet<Balance>();
 
     /**
      * person data
      */
     @ManyToOne
     private Person person;
+
+//    private String personId;
 }

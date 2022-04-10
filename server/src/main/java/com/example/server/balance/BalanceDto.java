@@ -1,25 +1,22 @@
 package com.example.server.balance;
 
 import com.example.server.account.Account;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-@Entity
-public class Currency {
-
-    @Id
-    @GeneratedValue
+public class BalanceDto {
+    @JsonIgnore
     private Integer id;
 
     private String type;
 
     private BigDecimal balance;
 
-    @ManyToOne
+    @JsonIgnore
     private Account account;
 }

@@ -14,13 +14,14 @@ CREATE TABLE ACCOUNT (
                         id   INTEGER NOT NULL AUTO_INCREMENT,
                         account_id VARCHAR (256),
                         person_id INTEGER,
-                        currency_id INTEGER,
+                        balance_id INTEGER,
                         PRIMARY KEY (id)
 );
 
-CREATE TABLE CURRENCY(
+CREATE TABLE BALANCE(
                         id   INTEGER NOT NULL AUTO_INCREMENT,
                         type VARCHAR(256),
                         balance DECIMAL,
+                        account_id INTEGER,
                         PRIMARY KEY (id)
 )

@@ -4,17 +4,22 @@ import com.example.server.account.Account;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class CurrencyDto {
+@Entity
+public class Balance {
+
+    @Id
+    @GeneratedValue
     private Integer id;
 
-    private String typeOfCurrency;
+    private String type;
 
     private BigDecimal balance;
 
+    @ManyToOne
     private Account account;
-
 }

@@ -62,6 +62,6 @@ public class Person {
      * счет в банке
      */
     @OneToMany(mappedBy = "person")
-    private Set<Account> accountSet = new HashSet<Account>();
+    private Set<Account> account = new HashSet<Account>();
 
 }

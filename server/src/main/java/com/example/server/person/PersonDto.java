@@ -9,13 +9,12 @@ import java.util.Set;
 
 @Setter
 @Getter
-
 public class PersonDto{
 
     /**
      * id в таблице
      */
-    private Long id;
+    private Integer id;
 
     /**
      * персональный id человека
