@@ -24,18 +24,14 @@ public class AccountController {
 
     /**
      * вывод аккаунтов клиента по его личному айди
-     * @param id
+     * @param id person
      * @return List<AccountDto>
      */
     @GetMapping("/get-accounts-by/{id}")
-    public List<AccountDto> getAccountById(@PathVariable("id") String id) throws JsonProcessingException {
-        Integer personId = personService.findPersonByPersonId(id).get().getId();
+    public List<AccountDto> getAccountById(@PathVariable("id") String id) {
+        Integer personId = personService.findPersonByPersonId(id).isPresent() ? personService.findPersonByPersonId(id).get().getId() : null;
         if (id != null) {
             List<AccountDto> accounts = accountService.findAccountsByPersonId(personId);
-
-//            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-//            String json = ow.writeValueAsString(accounts);
-//            System.out.println(accounts);
             if (accounts != null)
                 return accounts;
             log.info("No accounts found by person id " + personId);
