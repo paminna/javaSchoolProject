@@ -13,10 +13,10 @@ import java.util.Set;
 @Setter
 //@AllArgsConstructor
 //@NoArgsConstructor
-//@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+@JsonFormat(shape = JsonFormat.Shape.ARRAY)
 public class AccountDto {
 
-    @JsonIgnore
+//    @JsonIgnore
     private Integer id;
 
     /**
@@ -26,9 +26,9 @@ public class AccountDto {
 
 //    private String personId;
 
-    @JsonIgnore
+//    @JsonIgnore
     private PersonDto personDto;
 
-    @JsonUnwrapped
+//    @JsonUnwrapped
     private Set<BalanceDto> balance;
 }
