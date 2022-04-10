@@ -1,40 +1,45 @@
 package com.example.server.account;
 
+import com.example.server.balance.Balance;
 import com.example.server.person.Person;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Table(name = "account")
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Builder
+//@Table(name = "accounts")
 public class Account {
     /**
      * id
      */
     @Id
-    private Long id;
+    @GeneratedValue
+    private Integer id;
 
     /**
      * account id
      */
-    @Column(name = "accountId")
-    private Long accountId;
+//    @Column(name = "accountId")
+    private String accountId;
 
     /**
      * amount of money
      */
-    @Column(name = "balance")
-    private BigDecimal balance;
+    @OneToMany(mappedBy = "account")
+    private Set<Balance> balance = new HashSet<Balance>();
 
     /**
      * person data
      */
     @ManyToOne
     private Person person;
+
+//    private String personId;
 }

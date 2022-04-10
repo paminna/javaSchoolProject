@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
 
 //@SpringBootApplication(exclude = org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class)
-@Builder
+//@Builder
 @SpringBootApplication(scanBasePackages = "com.example.server")
 public class ServerApplication {
     public static void main(String[] args) {

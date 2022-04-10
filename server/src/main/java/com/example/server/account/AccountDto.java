@@ -1,24 +1,34 @@
 package com.example.server.account;
 
+import com.example.server.balance.BalanceDto;
 import com.example.server.person.PersonDto;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-
+import java.util.Set;
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.ARRAY)
 public class AccountDto {
 
-    private Long id;
+//    @JsonIgnore
+    private Integer id;
 
-    private Long accountId;
+    /**
+     * номер карты/счета
+     */
+    private String accountId;
 
-    private BigDecimal balance;
+//    private String personId;
 
+//    @JsonIgnore
     private PersonDto personDto;
+
+//    @JsonUnwrapped
+    private Set<BalanceDto> balance;
 }

@@ -1,24 +1,25 @@
 package com.example.server.person;
 
 import com.example.server.account.Account;
+import com.example.server.account.AccountDto;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
+import java.util.Set;
 
 @Setter
 @Getter
-
 public class PersonDto{
 
     /**
      * id в таблице
      */
-    private Long id;
+    private Integer id;
 
     /**
      * персональный id человека
      */
-    private Long personId;
+    private String personId;
 
     /**
      * имя человека
@@ -38,7 +39,7 @@ public class PersonDto{
     /**
      * счет в банке
      */
-    private Account account;
+    private Set<AccountDto> account;
 
     /**
      * дата рождения
