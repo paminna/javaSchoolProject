@@ -1,7 +1,10 @@
-package com.example.server.person;
+package com.example.server.service;
 
 
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import com.example.server.dto.PersonDto;
+import com.example.server.entity.Person;
+import com.example.server.repository.PersonRepository;
 import com.example.server.utils.JpaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

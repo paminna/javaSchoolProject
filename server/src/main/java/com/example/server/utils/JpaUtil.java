@@ -11,7 +11,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
-
+//
 @NoRepositoryBean
 public interface JpaUtil<T, ID extends Serializable> extends JpaRepository<T, ID> , JpaSpecificationExecutor<T> {
 }

@@ -1,7 +1,7 @@
-package com.example.client.client;
+package com.example.client.client.dto;
 
-import com.example.server.balance.BalanceDto;
-import com.example.server.person.PersonDto;
+import com.example.server.dto.BalanceDto;
+import com.example.server.dto.PersonDto;
 import lombok.Getter;
 import lombok.Setter;
 

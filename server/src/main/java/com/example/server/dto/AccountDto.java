@@ -1,10 +1,6 @@
-package com.example.server.account;
+package com.example.server.dto;
 
-import com.example.server.balance.BalanceDto;
-import com.example.server.person.PersonDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.Getter;
 import lombok.Setter;
 

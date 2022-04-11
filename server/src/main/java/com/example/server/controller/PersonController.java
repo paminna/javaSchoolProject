@@ -1,5 +1,8 @@
-package com.example.server.person;
+package com.example.server.controller;
 
+import com.example.server.dto.PersonDto;
+import com.example.server.person.PersonRequest;
+import com.example.server.service.PersonService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

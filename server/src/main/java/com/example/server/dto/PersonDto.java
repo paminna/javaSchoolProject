@@ -1,7 +1,6 @@
-package com.example.server.person;
+package com.example.server.dto;
 
-import com.example.server.account.Account;
-import com.example.server.account.AccountDto;
+import com.example.server.dto.AccountDto;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;

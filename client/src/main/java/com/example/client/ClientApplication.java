@@ -1,11 +1,8 @@
 package com.example.client;
 
 //import com.example.client.client.ClientRepository;
-import com.example.client.client.ClientRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication(scanBasePackages = {"com.example.client"})

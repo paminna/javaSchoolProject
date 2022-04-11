@@ -1,14 +1,11 @@
-package com.example.server.account;
+package com.example.server.controller;
 
-import com.example.server.person.PersonDto;
-import com.example.server.person.PersonRequest;
-import com.example.server.person.PersonService;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.server.dto.AccountDto;
+import com.example.server.service.AccountService;
+import com.example.server.service.PersonService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.util.List;
 

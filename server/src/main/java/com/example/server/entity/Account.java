@@ -1,7 +1,5 @@
-package com.example.server.account;
+package com.example.server.entity;
 
-import com.example.server.balance.Balance;
-import com.example.server.person.Person;
 import lombok.*;
 
 import javax.persistence.*;

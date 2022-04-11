@@ -1,6 +1,6 @@
-package com.example.server.balance;
+package com.example.server.entity;
 
-import com.example.server.account.Account;
+import com.example.server.entity.Account;
 import lombok.Getter;
 import lombok.Setter;
 
