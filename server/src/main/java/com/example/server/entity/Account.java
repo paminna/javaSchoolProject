@@ -3,16 +3,11 @@ package com.example.server.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigDecimal;
 
 @Entity
 @Getter
 @Setter
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Builder
-//@Table(name = "accounts")
 public class Account {
     /**
      * id
@@ -22,16 +17,14 @@ public class Account {
     private Integer id;
 
     /**
-     * account id
+     * balance
      */
-//    @Column(name = "accountId")
-    private String accountId;
+    private BigDecimal balance;
 
     /**
-     * amount of money
+     * type of currency
      */
-    @OneToMany(mappedBy = "account")
-    private Set<Balance> balance = new HashSet<Balance>();
+    private String type;
 
     /**
      * person data
@@ -39,5 +32,4 @@ public class Account {
     @ManyToOne
     private Person person;
 
-//    private String personId;
 }

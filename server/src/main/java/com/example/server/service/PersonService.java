@@ -1,7 +1,5 @@
 package com.example.server.service;
 
-
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import com.example.server.dto.PersonDto;
 import com.example.server.entity.Person;
 import com.example.server.repository.PersonRepository;
@@ -14,13 +12,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
-//@EnableWebSecurity
-
-//@NoArgsConstructor
-//@AllArgsConstructor
 @Service
-public class PersonService  extends JpaService<Person, Long, PersonRepository, PersonDto>{
+public class PersonService extends JpaService<Person, Long, PersonRepository, PersonDto> {
 
     @Autowired
     ModelMapper modelMapper;
@@ -35,13 +28,11 @@ public class PersonService  extends JpaService<Person, Long, PersonRepository, P
         return postDto;
     }
 
-    public Optional<PersonDto> findPersonByPersonId(String personId)
-    {
-        return getDao().findPersonByPersonId(personId).map(this::toDto);
+    public Optional<PersonDto> findPersonById(Integer personId) {
+        return getDao().findPersonById(personId).map(this::toDto);
     }
 
-    public List<PersonDto> findAllPeople()
-    {
+    public List<PersonDto> findAllPeople() {
         return getDao().findAll().stream().map(this::toDto).collect(Collectors.toList());
     }
 

@@ -26,12 +26,11 @@ public class AccountService extends JpaService<Account, Integer, AccountReposito
         return accountDto;
     }
 
-    public List<AccountDto> findAccountsByPersonId(Integer personId){
+    public List<AccountDto> findAccountsByPersonId(Integer personId) {
         return getDao().findAccountsByPersonId(personId).stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    public List<AccountDto> findAllAccounts()
-    {
+    public List<AccountDto> findAllAccounts() {
         return getDao().findAll().stream().map(this::toDto).collect(Collectors.toList());
     }
 

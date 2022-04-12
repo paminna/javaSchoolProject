@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
+import java.math.BigDecimal;
+
 @Getter
 @Setter
-//@AllArgsConstructor
-//@NoArgsConstructor
-@JsonFormat(shape = JsonFormat.Shape.ARRAY)
 public class AccountDto {
 
-//    @JsonIgnore
+    /**
+     * id in table
+     */
     private Integer id;
 
     /**
@@ -20,11 +20,18 @@ public class AccountDto {
      */
     private String accountId;
 
-//    private String personId;
-
-//    @JsonIgnore
+    /**
+     * данные о человеке
+     */
     private PersonDto personDto;
 
-//    @JsonUnwrapped
-    private Set<BalanceDto> balance;
+    /**
+     * тип валюты
+     */
+    private String type;
+
+    /**
+     * баланс
+     */
+    private BigDecimal balance;
 }

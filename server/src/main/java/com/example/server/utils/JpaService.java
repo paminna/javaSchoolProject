@@ -20,32 +20,21 @@ public class JpaService<T, ID extends Serializable, R extends JpaUtil<T, ID>, D>
     private final Class<T> entityClass;
     private final Class<D> dtoClass;
 
-//    @Autowired
-//    ModelMapper modelMapper;
-
-//    public D toDto(T entity) {
-//            D dto = modelMapper.map(entity, dtoClass);
-//            return dto;
-//    }
-
     @Autowired
     private AutowireCapableBeanFactory beanFactory;
 
     @PostConstruct
-    private void initial()
-    {
+    private void initial() {
         dao = beanFactory.getBean(daoClass);
     }
 
-    protected JpaService(Class<R> daoClass, Class<T> entityClass, Class<D> dtoClass)
-    {
+    protected JpaService(Class<R> daoClass, Class<T> entityClass, Class<D> dtoClass) {
         this.daoClass = daoClass;
         this.entityClass = entityClass;
         this.dtoClass = dtoClass;
     }
 
-    public R getDao()
-    {
+    public R getDao() {
         return dao;
     }
 
@@ -62,12 +51,12 @@ public class JpaService<T, ID extends Serializable, R extends JpaUtil<T, ID>, D>
 
     @Override
     public List<T> getAll() {
-        return getAll();
+        return dao.findAll();
     }
 
     @Override
     public void save(T t) {
-        dao.save(t);
+        dao.saveAndFlush(t);
     }
 
     @Override

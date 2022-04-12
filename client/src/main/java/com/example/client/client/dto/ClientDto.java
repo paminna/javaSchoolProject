@@ -1,11 +1,11 @@
 package com.example.client.client.dto;
 
-import com.example.server.dto.BalanceDto;
 import com.example.server.dto.PersonDto;
 import lombok.Getter;
 import lombok.Setter;
 
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Getter
@@ -20,5 +20,7 @@ public class ClientDto {
 
     private PersonDto personDto;
 
-    private Set<BalanceDto> balance;
+    private BigDecimal balance;
+
+    private String type;
 }
