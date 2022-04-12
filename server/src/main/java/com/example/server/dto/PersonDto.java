@@ -1,15 +1,14 @@
-package com.example.server.person;
+package com.example.server.dto;
 
-import com.example.server.account.Account;
-import com.example.server.account.AccountDto;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.Date;
 import java.util.Set;
 
 @Setter
 @Getter
-public class PersonDto{
+public class PersonDto {
 
     /**
      * id в таблице

@@ -1,5 +1,8 @@
-package com.example.server.account;
+package com.example.server.service;
 
+import com.example.server.dto.AccountDto;
+import com.example.server.entity.Account;
+import com.example.server.repository.AccountRepository;
 import com.example.server.utils.JpaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +26,11 @@ public class AccountService extends JpaService<Account, Integer, AccountReposito
         return accountDto;
     }
 
-    public List<AccountDto> findAccountsByPersonId(Integer personId){
+    public List<AccountDto> findAccountsByPersonId(Integer personId) {
         return getDao().findAccountsByPersonId(personId).stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    public List<AccountDto> findAllAccounts()
-    {
+    public List<AccountDto> findAllAccounts() {
         return getDao().findAll().stream().map(this::toDto).collect(Collectors.toList());
     }
 
