@@ -1,12 +1,11 @@
 package com.example.server.controller;
 
 import com.example.server.dto.AccountDto;
-import com.example.server.service.AccountService;
-import com.example.server.service.PersonService;
+import com.example.server.service.AccountServiceImpl;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.server.service.PersonServiceImpl;
 import java.util.List;
 
 @Log
@@ -14,10 +13,10 @@ import java.util.List;
 @RequestMapping("/account")
 public class AccountController {
     @Autowired
-    AccountService accountService;
+    AccountServiceImpl accountService;
 
     @Autowired
-    PersonService personService;
+    PersonServiceImpl personService;
 
     /**
      * вывод аккаунтов клиента по его личному айди

@@ -2,7 +2,7 @@ package com.example.server.controller;
 
 import com.example.server.dto.PersonDto;
 import com.example.server.person.PersonRequest;
-import com.example.server.service.PersonService;
+import com.example.server.service.PersonServiceImpl;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/server")
 public class PersonController {
     @Autowired
-    PersonService personService;
+    PersonServiceImpl personService;
 
     @PostMapping("/get-person-information")
     public PersonDto getPersonById(@RequestBody PersonRequest request) {

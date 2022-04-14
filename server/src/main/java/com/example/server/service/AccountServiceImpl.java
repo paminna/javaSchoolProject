@@ -12,26 +12,28 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class AccountService extends JpaService<Account, Integer, AccountRepository, AccountDto> {
+public class AccountServiceImpl extends JpaService<Account, Integer, AccountRepository, AccountDto> implements AccountService {
 
     @Autowired
     ModelMapper modelMapper;
 
-    protected AccountService() {
+    protected AccountServiceImpl() {
         super(AccountRepository.class, Account.class, AccountDto.class);
     }
 
-    private AccountDto toDto(Account account) {
+    @Override
+    public AccountDto toDto(Account account) {
         AccountDto accountDto = modelMapper.map(account, AccountDto.class);
         return accountDto;
     }
 
+    @Override
     public List<AccountDto> findAccountsByPersonId(Integer personId) {
         return getDao().findAccountsByPersonId(personId).stream().map(this::toDto).collect(Collectors.toList());
     }
 
+    @Override
     public List<AccountDto> findAllAccounts() {
         return getDao().findAll().stream().map(this::toDto).collect(Collectors.toList());
     }
-
 }
