@@ -9,6 +9,4 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaUtil<Account, Integer> {
     List<Account> findAccountsByPersonId(Integer personId);
-
-    List<Account> findAllAccounts();
 }

@@ -6,6 +6,8 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.server.service.PersonServiceImpl;
+
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Log
@@ -31,9 +33,9 @@ public class AccountController {
             List<AccountDto> accounts = accountService.findAccountsByPersonId(personId);
             if (accounts != null)
                 return accounts;
-            log.info("No accounts found by person id " + personId);
+            log.info("No accounts found by person id " + personId.toString());
         }
-        log.info("No person id found by id " + id);
+        log.info("No person id found by id " + id.toString());
         return null;
     }
 

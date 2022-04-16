@@ -7,6 +7,7 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @Log
 @RestController
@@ -15,16 +16,16 @@ public class PersonController {
     @Autowired
     PersonServiceImpl personService;
 
-    @PostMapping("/get-person-information")
-    public PersonDto getPersonById(@RequestBody PersonRequest request) {
-        PersonDto personDto = personService.findPersonById(request.getId()).isPresent() ? personService.findPersonById(request.getId()).get() : null;
+    @GetMapping("/get-person-information/{id}")
+    public PersonDto getPersonById(@PathVariable("id") Integer id) {
+        PersonDto personDto = personService.findPersonById(id).isPresent() ? personService.findPersonById(id).get() : null;
         if (personDto != null)
             return personDto;
-        log.info("Couldn't find person by id" + request.getId());
+        log.info("Couldn't find person by id" + id.toString());
         return null;
     }
 
-    @PostMapping("/get-all-people")
+    @GetMapping("/get-all-people")
     public List<PersonDto> getAllPeople() {
         if (personService.findAll().size() != 0)
             return personService.findAllPeople();
