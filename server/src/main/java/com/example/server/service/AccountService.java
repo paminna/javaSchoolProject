@@ -2,36 +2,13 @@ package com.example.server.service;
 
 import com.example.server.dto.AccountDto;
 import com.example.server.entity.Account;
-import com.example.server.repository.AccountRepository;
-import com.example.server.utils.JpaService;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Service
-public class AccountService extends JpaService<Account, Integer, AccountRepository, AccountDto> {
+public interface AccountService {
 
-    @Autowired
-    ModelMapper modelMapper;
+    AccountDto toDto(Account account);
 
-    protected AccountService() {
-        super(AccountRepository.class, Account.class, AccountDto.class);
-    }
+    List<AccountDto> findAccountsByPersonId(Integer personId);
 
-    private AccountDto toDto(Account account) {
-        AccountDto accountDto = modelMapper.map(account, AccountDto.class);
-        return accountDto;
-    }
-
-    public List<AccountDto> findAccountsByPersonId(Integer personId) {
-        return getDao().findAccountsByPersonId(personId).stream().map(this::toDto).collect(Collectors.toList());
-    }
-
-    public List<AccountDto> findAllAccounts() {
-        return getDao().findAll().stream().map(this::toDto).collect(Collectors.toList());
-    }
-
+    List<AccountDto> findAllAccounts();
 }
