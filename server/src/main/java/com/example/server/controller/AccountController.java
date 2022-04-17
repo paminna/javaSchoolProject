@@ -1,5 +1,6 @@
 package com.example.server.controller;
 
+import com.example.server.RequestPerson;
 import com.example.server.dto.AccountDto;
 import com.example.server.service.AccountServiceImpl;
 import lombok.extern.java.Log;
@@ -22,9 +23,9 @@ public class AccountController {
      *
      * @return List<AccountDto>
      */
-    @GetMapping("/get-accounts-by")
-    public List<AccountDto> getAccountById(@RequestParam("login") String login, @RequestParam("password") String password) {
-        return accountService.findAccountsByPin(login, password);
+    @PostMapping("/get-accounts-by")
+    public List<AccountDto> getAccountById(@RequestBody RequestPerson requestParam) {
+        return accountService.findAccountsByPin(requestParam.getLogin(), requestParam.getPassword());
     }
 
     @GetMapping("/find-all-accounts")
