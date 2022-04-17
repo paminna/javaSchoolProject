@@ -6,6 +6,10 @@ import com.example.server.repository.PersonRepository;
 import com.example.server.utils.JpaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class PersonServiceImpl extends JpaService<Person, Long, PersonRepository, PersonDto> implements PersonService{
+public class PersonServiceImpl extends JpaService<Person, Long, PersonRepository, PersonDto> implements PersonService {
     @Autowired
     ModelMapper modelMapper;
 
@@ -36,4 +40,15 @@ public class PersonServiceImpl extends JpaService<Person, Long, PersonRepository
     public List<PersonDto> findAllPeople() {
         return getDao().findAll().stream().map(this::toDto).collect(Collectors.toList());
     }
+
+    @Override
+    public Optional<PersonDto> findPersonByLogin(String login) {
+        return getDao().findPersonByLogin(login).map(this::toDto);
+    }
+
+    @Override
+    public Optional<PersonDto> findPersonByLoginAndPassword(String login, String password){
+        return getDao().findPersonByLoginAndPassword(login, password).map(this::toDto);
+    }
+
 }

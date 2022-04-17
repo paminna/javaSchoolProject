@@ -11,4 +11,6 @@ public interface AccountService {
     List<AccountDto> findAccountsByPersonId(Integer personId);
 
     List<AccountDto> findAllAccounts();
+
+    List<AccountDto> findAccountsByPin(String login, String password);
 }

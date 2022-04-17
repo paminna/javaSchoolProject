@@ -45,4 +45,8 @@ public class PersonDto {
      */
     private Date birthday;
 
+    private String login;
+
+    private String password;
+
 }

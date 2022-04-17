@@ -49,6 +49,14 @@
             <version>2.6.5</version>
             <scope>compile</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.camunda.bpm.extension.graphql</groupId>
+            <artifactId>camunda-bpm-graphql</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

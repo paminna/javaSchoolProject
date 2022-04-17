@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Log
 @RestController
-@RequestMapping("/server")
 public class PersonController {
     @Autowired
     PersonServiceImpl personService;
@@ -31,5 +30,10 @@ public class PersonController {
             return personService.findAllPeople();
         log.info("There is no accounts yet");
         return null;
+    }
+
+    @GetMapping("/")
+    public String sayHello(){
+        return "hello, you are in server";
     }
 }

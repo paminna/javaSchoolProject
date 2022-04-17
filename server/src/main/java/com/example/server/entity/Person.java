@@ -41,4 +41,11 @@ public class Person {
      */
     private Date birthday;
 
+
+    private String login;
+
+    private String password;
+
+    private Boolean enable;
+
 }

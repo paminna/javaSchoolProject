@@ -1,8 +1,8 @@
 package com.example.client;
 
-//import com.example.client.client.ClientRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication(scanBasePackages = {"com.example.client"})

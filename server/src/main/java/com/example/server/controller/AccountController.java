@@ -17,26 +17,14 @@ public class AccountController {
     @Autowired
     AccountServiceImpl accountService;
 
-    @Autowired
-    PersonServiceImpl personService;
-
     /**
      * вывод аккаунтов клиента по его личному айди
      *
-     * @param id person
      * @return List<AccountDto>
      */
-    @GetMapping("/get-accounts-by/{id}")
-    public List<AccountDto> getAccountById(@PathVariable("id") Integer id) {
-        Integer personId = personService.findPersonById(id).isPresent() ? personService.findPersonById(id).get().getId() : null;
-        if (id != null) {
-            List<AccountDto> accounts = accountService.findAccountsByPersonId(personId);
-            if (accounts != null)
-                return accounts;
-            log.info("No accounts found by person id " + personId.toString());
-        }
-        log.info("No person id found by id " + id.toString());
-        return null;
+    @GetMapping("/get-accounts-by")
+    public List<AccountDto> getAccountById(@RequestParam("login") String login, @RequestParam("password") String password) {
+        return accountService.findAccountsByPin(login, password);
     }
 
     @GetMapping("/find-all-accounts")

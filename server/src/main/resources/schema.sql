@@ -4,7 +4,10 @@ CREATE TABLE PERSON (
                          name VARCHAR(256),
                          patronymic VARCHAR (256),
                          full_name VARCHAR (256),
+                         login VARCHAR (256),
+                         password VARCHAR (256),
                          birthday DATE,
+                         enable BIT,
                          PRIMARY KEY (id)
 );
 

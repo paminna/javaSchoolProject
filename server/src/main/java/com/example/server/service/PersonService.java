@@ -12,4 +12,9 @@ public interface PersonService {
     Optional<PersonDto> findPersonById(Integer personId);
 
     List<PersonDto> findAllPeople();
+
+    Optional<PersonDto> findPersonByLogin(String login);
+
+    Optional<PersonDto> findPersonByLoginAndPassword(String login, String password);
+
 }
