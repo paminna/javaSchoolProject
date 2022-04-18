@@ -5,6 +5,8 @@ CREATE TABLE PERSON (
                          patronymic VARCHAR (256),
                          full_name VARCHAR (256),
                          birthday DATE,
+                         login VARCHAR (256),
+                         password VARCHAR (256),
                          PRIMARY KEY (id)
 );
 

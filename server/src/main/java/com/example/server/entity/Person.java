@@ -9,6 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class Person {
+
     /**
      * id человека в таблице
      */
@@ -41,4 +42,13 @@ public class Person {
      */
     private Date birthday;
 
+    /**
+     * логин пользователя
+     */
+    private String login;
+
+    /**
+     * пароль пользователя
+     */
+    private String password;
 }
