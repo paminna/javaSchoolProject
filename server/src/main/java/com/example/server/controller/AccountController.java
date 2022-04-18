@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.server.service.PersonServiceImpl;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Log
@@ -23,28 +24,40 @@ public class AccountController {
     /**
      * вывод аккаунтов клиента по его личному айди
      *
-     * @param id person
+     * @param login,password person
      * @return List<AccountDto>
      */
-    @GetMapping("/get-accounts-by/{id}")
-    public List<AccountDto> getAccountById(@PathVariable("id") Integer id) {
-        Integer personId = personService.findPersonById(id).isPresent() ? personService.findPersonById(id).get().getId() : null;
-        if (id != null) {
-            List<AccountDto> accounts = accountService.findAccountsByPersonId(personId);
-            if (accounts != null)
-                return accounts;
-            log.info("No accounts found by person id " + personId.toString());
-        }
-        log.info("No person id found by id " + id.toString());
-        return null;
+    @GetMapping("/get-accounts-by/{login}/{password}")
+    public List<AccountDto> getAccount(
+            @PathVariable("login") String login,
+            @PathVariable("password") String password) {
+        return accountService.getAccountByLogin(login, password);
     }
 
+    /**
+     * возвращает список всех аккаунтов из базы данных
+     * @return
+     */
     @GetMapping("/find-all-accounts")
     public List<AccountDto> findAllAccounts() {
         List<AccountDto> accountDtos = accountService.findAllAccounts();
         if (accountDtos.size() > 0)
             return accountDtos;
         log.info("There is no accounts");
-        return null;
+        return new ArrayList<>();
+    }
+
+    /**
+     * конвертация рубля в евро/доллар
+     * @param from что конвертируем (рубль)
+     * @param to в какую валюту конвертируем
+     * @param id человека для поиска аккаунта
+     * @return
+     */
+    @GetMapping("convert/{from}/{to}/by/{personId}")
+    public String  converter(@PathVariable("from") String from,
+                             @PathVariable("to") String to,
+                             @PathVariable("personId") Integer id){
+        return accountService.convert(from, to, id);
     }
 }

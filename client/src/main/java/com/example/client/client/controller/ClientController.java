@@ -1,4 +1,5 @@
 package com.example.client.client.controller;
+
 import com.example.server.dto.AccountDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,13 +24,31 @@ public class ClientController {
         return "Client is ready.";
     }
 
-    @GetMapping("/get/accounts/by/{id}")
-    public List<AccountDto> getAccountById(@PathVariable("id") String personId)
-    {
+    /**
+     *
+     * @param login
+     * @param password
+     * @return
+     */
+    @GetMapping("/get/accounts/by/{login}/{password}")
+    public List<AccountDto> getAccountById(@PathVariable("login") String login, @PathVariable("password") String password) {
         AccountDto[] responses =
-                restTemplate.getForObject(url + "/account/get-accounts-by/" + personId, AccountDto[].class );
+                restTemplate.getForObject(url + "/account/get-accounts-by/" + login + "/" + password, AccountDto[].class);
         List<AccountDto> list = Arrays.asList(responses);
         return list;
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @param id
+     * @return
+     */
+    @GetMapping("convert/{from}/{to}/by/{personId}")
+    public String convert(@PathVariable("from") String from,
+                          @PathVariable("to") String to,
+                          @PathVariable("personId") Integer id) {
+        return restTemplate.getForObject(url + "/account/convert/" + from + "/" + to + "/by/" + id, String.class);
+    }
 }
