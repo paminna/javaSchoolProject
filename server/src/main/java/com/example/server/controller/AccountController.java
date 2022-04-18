@@ -26,7 +26,7 @@ public class AccountController {
      * @param id person
      * @return List<AccountDto>
      */
-    @GetMapping("/get-accounts-by/{id}")
+    @GetMapping("/get-accounts-by/{login}/{password}")
     public List<AccountDto> getAccountById(@PathVariable("id") Integer id) {
         Integer personId = personService.findPersonById(id).isPresent() ? personService.findPersonById(id).get().getId() : null;
         if (id != null) {
@@ -46,5 +46,12 @@ public class AccountController {
             return accountDtos;
         log.info("There is no accounts");
         return null;
+    }
+
+    @GetMapping("convert/{from}/{to}/by/{personId}")
+    public void converter(@PathVariable("from") String from,
+                          @PathVariable("to") String to,
+                          @PathVariable("personId") Integer id){
+        accountService.convert(from, to, id);
     }
 }
