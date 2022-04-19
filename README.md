@@ -13,5 +13,5 @@ http://localhost:8080/client/get/accounts/by/логин/пароль
 
 Конвертация рублей в другие валюты
 
-http://localhost:8080/client/convert/из какой валюты переводим/в какую валюту переводим/by/логин
+http://localhost:8080/client/convert/из_какой_валюты_переводим/в_какую_валюту_переводим/by/логин
 
