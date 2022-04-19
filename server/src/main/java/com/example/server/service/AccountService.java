@@ -20,5 +20,5 @@ public interface AccountService {
 
     List<AccountDto> getAccountByLogin(String login, String password);
 
-    String convert(String from, String to, Integer personId);
+    String convert(String from, String to, String login);
 }

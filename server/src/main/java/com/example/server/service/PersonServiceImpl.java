@@ -61,4 +61,14 @@ public class PersonServiceImpl extends JpaService<Person, Long, PersonRepository
         return getDao().findPersonByLoginAndPassword(login, password).map(this::toDto);
     }
 
+    /**
+     * возвращает пользователя по логину
+     * @param login
+     * @return
+     */
+    @Override
+    public Optional<PersonDto> findPersonByLogin(String login){
+        return getDao().findPersonByLogin(login).map(this::toDto);
+    }
+
 }

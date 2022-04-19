@@ -16,4 +16,5 @@ public interface PersonRepository extends JpaUtil<Person, Long> {
 
     Optional<Person> findPersonByLoginAndPassword(String login, String password);
 
+    Optional<Person> findPersonByLogin(String login);
 }

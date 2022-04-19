@@ -71,8 +71,15 @@ public class PersonServiceImplTest {
     }
 
     @Test
-    public void PersonBotFoundById() {
+    public void PersonNotFoundById() {
         when(personRepositoryMock.findPersonById(132)).thenReturn(null);
         Assert.assertEquals(null, personRepositoryMock.findPersonById(132));
+    }
+
+    @Test
+    public void PersonByLogin(){
+        Optional<Person> person = Optional.of(new Person());
+        when(personRepositoryMock.findPersonByLogin("ivan")).thenReturn(person);
+        Assert.assertEquals(person, personRepositoryMock.findPersonByLogin("ivan"));
     }
 }

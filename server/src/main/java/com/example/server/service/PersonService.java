@@ -14,4 +14,6 @@ public interface PersonService {
     List<PersonDto> findAllPeople();
 
     Optional<PersonDto> findPersonByLoginAndPassword(String login, String password);
+
+    Optional<PersonDto> findPersonByLogin(String login);
 }

@@ -83,7 +83,9 @@ public class AccountServiceImpl extends JpaService<Account, Integer, AccountRepo
      * @return
      */
     @Override
-    public String convert(String from, String to, Integer personId) {
+    public String convert(String from, String to, String  login) {
+        Integer personId = personService.findPersonByLogin(login).isPresent() ?
+                personService.findPersonByLogin(login).get().getId() : null;
         AccountDto convertFrom = this.findAccountByPerson_IdAndType(personId, from).isPresent()
                 ? this.findAccountByPerson_IdAndType(personId, from).get() : null;
         convertFrom.setPersonDto(personService.findPersonById(personId).get());

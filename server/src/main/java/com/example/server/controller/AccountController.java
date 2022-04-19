@@ -51,13 +51,13 @@ public class AccountController {
      * конвертация рубля в евро/доллар
      * @param from что конвертируем (рубль)
      * @param to в какую валюту конвертируем
-     * @param id человека для поиска аккаунта
+     * @param login человека для поиска аккаунта
      * @return
      */
-    @GetMapping("convert/{from}/{to}/by/{personId}")
+    @GetMapping("convert/{from}/{to}/by/{login}")
     public String  converter(@PathVariable("from") String from,
                              @PathVariable("to") String to,
-                             @PathVariable("personId") Integer id){
-        return accountService.convert(from, to, id);
+                             @PathVariable("login") String login){
+        return accountService.convert(from, to, login);
     }
 }
