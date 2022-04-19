@@ -24,7 +24,7 @@ public class ClientController {
     }
 
     /**
-     *
+     * получение информации о картах клиента
      * @param login
      * @param password
      * @return
@@ -38,16 +38,16 @@ public class ClientController {
     }
 
     /**
-     *
+     * конвертация рублей в другие валюты
      * @param from
      * @param to
-     * @param id
+     * @param login
      * @return
      */
-    @GetMapping("/convert/{from}/{to}/for/{personId}")
+    @GetMapping("/convert/{from}/{to}/for/{login}")
     public String convert(@PathVariable("from") String from,
                           @PathVariable("to") String to,
-                          @PathVariable("personId") Integer id) {
-        return restTemplate.getForObject(url + "/account/convert/" + from + "/" + to + "/by/" + id, String.class);
+                          @PathVariable("login") String login) {
+        return restTemplate.getForObject(url + "/account/convert/" + from + "/" + to + "/by/" + login, String.class);
     }
 }

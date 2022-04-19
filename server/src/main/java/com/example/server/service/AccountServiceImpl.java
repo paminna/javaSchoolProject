@@ -79,7 +79,7 @@ public class AccountServiceImpl extends JpaService<Account, Integer, AccountRepo
      * конвертация рублей в евро/доллары, сохранение в базу данных
      * @param from
      * @param to
-     * @param personId
+     * @param login
      * @return
      */
     @Override
