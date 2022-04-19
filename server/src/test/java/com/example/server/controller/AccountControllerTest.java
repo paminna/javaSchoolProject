@@ -26,14 +26,13 @@ class AccountControllerTest {
 
     @Test
     public void getbyId() throws Exception {
-        int id = 1;
-        mockMvc.perform(MockMvcRequestBuilders.get("/account/get-accounts-by/{id}", id))
+        mockMvc.perform(MockMvcRequestBuilders.get("/account/get-accounts-by/{login}/{password}", "ivan", "1111"))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void noSuchPerson() throws Exception{
-            mockMvc.perform(MockMvcRequestBuilders.get("/account/get-accounts-by/9"))
+            mockMvc.perform(MockMvcRequestBuilders.get("/account/get-accounts-by/{login}/{password}", "dana", "2345"))
                     .andExpect(status().isOk())
                     .andExpect(mvcResult -> mvcResult.getResponse().getClass().equals(null));
     }

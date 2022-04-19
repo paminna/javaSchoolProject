@@ -1,11 +1,10 @@
 package com.example.client.client.controller;
 
-import com.example.server.dto.AccountDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
+import com.example.server.dto.AccountDto;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class ClientController {
      * @param id
      * @return
      */
-    @GetMapping("convert/{from}/{to}/by/{personId}")
+    @GetMapping("/convert/{from}/{to}/for/{personId}")
     public String convert(@PathVariable("from") String from,
                           @PathVariable("to") String to,
                           @PathVariable("personId") Integer id) {

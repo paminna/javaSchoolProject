@@ -123,7 +123,7 @@ public class AccountServiceImpl extends JpaService<Account, Integer, AccountRepo
                 return accounts;
             log.info("No accounts found by person id " + personId.toString());
         }
-        log.info("No person id found by id " + personId.toString());
+        log.info("No such person");
         return null;
     }
 }
